@@ -276,7 +276,7 @@ if (typeof document !== "undefined" && !document.getElementById("aia-route-style
 // ─── Event Modal ──────────────────────────────────────────────────────────────
 function EventModal({ event, onClose, isMobile }) {
   const [mediaIdx, setMediaIdx] = useState(0);
-  const total = event.media.length;
+  const total = event.media?.length || 0;
 
   useEffect(() => {
     const onKey = (e) => {
@@ -286,9 +286,9 @@ function EventModal({ event, onClose, isMobile }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [total, onClose]);
+  }, [total, onClose, setMediaIdx]);
 
-  const cur = event.media[mediaIdx];
+  const cur = event.media?.[mediaIdx];
   const mediaH = isMobile ? 220 : 300;
 
   return (
@@ -386,7 +386,7 @@ function EventModal({ event, onClose, isMobile }) {
                 </button>
               ))}
               <div style={{ position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 6 }}>
-                {event.media.map((_, i) => (
+                {event.media?.map((_, i) => (
                   <button key={i} onClick={() => setMediaIdx(i)} style={{
                     width: 8, height: 8, borderRadius: "50%", border: "none", padding: 0, cursor: "pointer",
                     background: i === mediaIdx ? event.color : "rgba(255,255,255,0.45)",
@@ -906,7 +906,7 @@ export default function App() {
           <div style={{ fontSize: 9, fontWeight: 700, color: "#aaa", letterSpacing: "0.6px", textTransform: "uppercase", marginBottom: 2 }}>
             Race Routes
           </div>
-          {routeEventsVisible.map((ev) => (
+          {routeEventsVisible?.map((ev) => (
             <div key={ev.id} style={{ display: "flex", alignItems: "center", gap: 7 }}>
               <svg width="22" height="10" viewBox="0 0 22 10">
                 <line x1="0" y1="5" x2="22" y2="5" stroke={ev.color} strokeWidth="2.5" strokeDasharray="4 4" strokeLinecap="round" />
