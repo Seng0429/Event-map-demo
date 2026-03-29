@@ -683,22 +683,51 @@ export default function App() {
     loadStyle("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap");
   }, []);
 
+  // 1. INITIALIZATION: Only runs once when the script is ready
   useEffect(() => {
-    if (!ready || !mapRef.current || leafletRef.current) return;
+    // Guard clause: Ensure Leaflet exists and we haven't built the map yet
+    if (!ready || !mapRef.current || leafletRef.current || !window.L) return;
+
     const L = window.L;
+
+
     const map = L.map(mapRef.current, {
-      center: [1.3521, 103.8198], zoom: isMobile ? 11 : 12,
-      minZoom: 11, maxZoom: 16, zoomControl: false,
+      center: [1.3521, 103.8198],
+      zoom: isMobile ? 11 : 12, // Set initial zoom based on current state
+      minZoom: 11,
+      maxZoom: 16,
+      zoomControl: false,
     });
+
+    // Set constraints
     map.setMaxBounds(L.latLngBounds(L.latLng(1.1, 103.55), L.latLng(1.5, 104.1)));
+
+    // Add Layers
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: "© OpenStreetMap © CARTO", subdomains: "abcd", maxZoom: 19,
+      attribution: "© OpenStreetMap © CARTO",
+      subdomains: "abcd",
+      maxZoom: 19,
     }).addTo(map);
+
     L.control.zoom({ position: "bottomright" }).addTo(map);
+
+    // Initialize Layer Groups for pins and routes
     layerGroupRef.current = L.layerGroup().addTo(map);
     routeLayerRef.current = L.layerGroup().addTo(map);
+
+    // Save map instance to ref to prevent re-initialization
     leafletRef.current = map;
-  }, [ready, isMobile]);
+
+    // NOTE: We exclude isMobile from this array so the map isn't destroyed/rebuilt
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready]);
+
+  // 2. RESPONSIVE UPDATE: Updates zoom smoothly without breaking the map
+  useEffect(() => {
+    if (leafletRef.current) {
+      leafletRef.current.setZoom(isMobile ? 11 : 12);
+    }
+  }, [isMobile]);
 
   const setActiveEventCb = useCallback((ev) => setActiveEvent(ev), []);
 
