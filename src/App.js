@@ -698,7 +698,7 @@ export default function App() {
     layerGroupRef.current = L.layerGroup().addTo(map);
     routeLayerRef.current = L.layerGroup().addTo(map);
     leafletRef.current = map;
-  }, [ready]);
+  }, [ready, isMobile]);
 
   const setActiveEventCb = useCallback((ev) => setActiveEvent(ev), []);
 
