@@ -1,6 +1,7 @@
 {
-  "name": "event-map",
+  "name": "event-map-demo",
   "version": "0.1.0",
+  "homepage": "https://seng0429.github.io/Event-map-demo",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
