@@ -2,13 +2,17 @@ import GalleryCorridor from './components/GalleryCorridor/GalleryCorridor';
 import ClaudePhotoGallery from './components/ClaudePhotoGallery/ClaudePhotoGallery';
 import Timeline from './components/Timeline/Timeline';
 
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
+  // This automatically detects if you are on GitHub (/Event-map-demo) 
+  // or Localhost (/) so it doesn't break either one.
+  const isGithubPages = window.location.hostname.includes('github.io');
+  const basename = isGithubPages ? '/Event-map-demo' : '/';
+
   return (
     <div className="App">
-      <BrowserRouter basename='/Event-map-demo'>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<ClaudePhotoGallery />} />
           <Route path="demo1" element={<ClaudePhotoGallery />} />
@@ -21,3 +25,5 @@ function App() {
 }
 
 export default App;
+
+//
