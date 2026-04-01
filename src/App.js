@@ -11,9 +11,9 @@ function App() {
       <BrowserRouter basename='/Event-map-demo'>
         <Routes>
           <Route path="/" element={<ClaudePhotoGallery />} />
-          <Route path="demo-1" element={<ClaudePhotoGallery />} />
-          <Route path="demo-2" element={<GalleryCorridor />} />
-          <Route path="demo-3" element={<Timeline />} />
+          <Route path="demo1" element={<ClaudePhotoGallery />} />
+          <Route path="demo2" element={<GalleryCorridor />} />
+          <Route path="demo3" element={<Timeline />} />
         </Routes>
       </BrowserRouter>
     </div>
