@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
-// ─── Breakpoint hook ──────────────────────────────────────────────────────────
 function useIsMobile() {
   const [mobile, setMobile] = useState(() => window.innerWidth < 640);
   useEffect(() => {
@@ -11,7 +10,6 @@ function useIsMobile() {
   return mobile;
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
 const ALL_EVENTS = [
   {
     id: 1,
@@ -41,7 +39,7 @@ const ALL_EVENTS = [
     ],
     time: "May–Sep 2025 · Ongoing",
     location: "Bishan–Ang Mo Kio Park, Singapore",
-    description: "Rally your teams and get ready to Show It, Sweat It, and Live It — with Vitality! The #LiveWithVitality Corporate Challenge invites AIA corporate clients to complete designated activities across the season. Companies that finish all activities earn onboarding to the Corporate AIA Vitality programme, empowering every employee to be rewarded for living healthier.",
+    description: "Rally your teams and get ready to Show It, Sweat It, and Live It — with Vitality! The #LiveWithVitality Corporate Challenge invites AIA corporate clients to complete designated activities across the season.",
     category: "AIA Vitality", color: "#8b5cf6",
   },
   {
@@ -56,7 +54,7 @@ const ALL_EVENTS = [
     ],
     time: "Sat, 26 Apr 2025 · 7:00 AM",
     location: "Seletar Country Club, Seletar",
-    description: "AIA Singapore's annual fundraising golf tournament, calling upon all business partners, staff and representatives to raise funds for the AIA Better Lives Fund — administered by the Community Chest. Every dollar raised benefits Children's Wishing Well and VIVA Foundation for Children with Cancer.",
+    description: "AIA Singapore's annual fundraising golf tournament, calling upon all business partners, staff and representatives to raise funds for the AIA Better Lives Fund — administered by the Community Chest.",
     category: "Charity", color: "#22c55e",
   },
   {
@@ -72,7 +70,7 @@ const ALL_EVENTS = [
     ],
     time: "Sat, 27 Sep 2025 · 9:00 AM",
     location: "one-north, Buona Vista",
-    description: "AIA Singapore's inaugural AIA Ultimate FitnessFest (AUFF), presented in partnership with HYROX. The Open Edition welcomes participants of all ages and fitness levels for a 'lite' HYROX experience — accessible, fun, and inclusive. Designed around AIA's 'Rethink Healthy' campaign.",
+    description: "AIA Singapore's inaugural AIA Ultimate FitnessFest (AUFF), presented in partnership with HYROX. The Open Edition welcomes participants of all ages and fitness levels for a 'lite' HYROX experience.",
     category: "Fitness", color: "#f97316",
   },
   {
@@ -87,7 +85,7 @@ const ALL_EVENTS = [
     ],
     time: "Sat, 9 Aug 2025 · All Day (Season: Aug–Sep 2025)",
     location: "Marina Bay & Gardens by the Bay, Singapore",
-    description: "Celebrate National Day with AIA Vitality's iDiscover SG60 Edition (Season 8). Complete both curated walking routes across Singapore's iconic waterfront landmarks and earn up to 400 Vitality coins — double the usual reward for SG60!",
+    description: "Celebrate National Day with AIA Vitality's iDiscover SG60 Edition (Season 8). Complete both curated walking routes across Singapore's iconic waterfront landmarks and earn up to 400 Vitality coins.",
     category: "AIA Vitality", color: "#8b5cf6",
   },
   {
@@ -103,7 +101,7 @@ const ALL_EVENTS = [
     ],
     time: "Sat–Sun, 20–21 Dec 2025 · 8:00 AM",
     location: "Rainforest Wild ASIA, Mandai Wildlife Reserve",
-    description: "Step into the Season of Giving with AIA's festive 2-day trail walk at Rainforest Wild ASIA, Mandai. Explore lush rainforest trails, encounter exotic wildlife, and raise funds for the AIA Better Lives Fund. Special edition tapir plushies available for purchase.",
+    description: "Step into the Season of Giving with AIA's festive 2-day trail walk at Rainforest Wild ASIA, Mandai. Explore lush rainforest trails, encounter exotic wildlife, and raise funds for the AIA Better Lives Fund.",
     category: "Charity Walk", color: "#10b981",
   },
   {
@@ -119,7 +117,7 @@ const ALL_EVENTS = [
     ],
     time: "Sun, 30 Mar 2025 · 7:00 AM",
     location: "Gardens by the Bay, Marina Bay",
-    description: "AIA Singapore hosts its annual community charity run to benefit the AIA Better Lives Fund. Participants get active while raising funds for Children's Wishing Well and VIVA Foundation for Children with Cancer. Every kilometre clocked and every dollar raised makes a real difference.",
+    description: "AIA Singapore hosts its annual community charity run to benefit the AIA Better Lives Fund. Participants get active while raising funds for Children's Wishing Well and VIVA Foundation for Children with Cancer.",
     category: "Charity Run", color: "#22c55e",
   },
   {
@@ -134,7 +132,7 @@ const ALL_EVENTS = [
     ],
     time: "Thu, 1 May 2025 · All Day (May–Sep 2025)",
     location: "CBD & City Fringe, Singapore",
-    description: "AIA Vitality's flagship walking challenge across Singapore's CBD. Track your daily steps through the AIA+ app, complete weekly milestones, and earn Vitality points redeemable for rewards. All AIA Vitality members eligible — the more you move, the more you earn.",
+    description: "AIA Vitality's flagship walking challenge across Singapore's CBD. Track your daily steps through the AIA+ app, complete weekly milestones, and earn Vitality points redeemable for rewards.",
     category: "AIA Vitality", color: "#8b5cf6",
   },
   {
@@ -149,7 +147,7 @@ const ALL_EVENTS = [
     ],
     time: "Sat, 12 Jul 2025 · 9:00 AM",
     location: "Community Centres islandwide, Singapore",
-    description: "AIA Singapore's annual Connecting Lives Volunteer Day mobilises AIA staff, insurance representatives, and the wider AIA community to serve those in need. Volunteers are recognised for their dedication to building a more inclusive Singapore.",
+    description: "AIA Singapore's annual Connecting Lives Volunteer Day mobilises AIA staff, insurance representatives, and the wider AIA community to serve those in need.",
     category: "Community", color: "#06b6d4",
   },
   {
@@ -165,12 +163,11 @@ const ALL_EVENTS = [
     ],
     time: "Sat, 7 Jun 2025 · 9:00 AM",
     location: "Kallang Practice Track, Kallang",
-    description: "In partnership with Tottenham Hotspur FC — AIA's Global Principal Partner — the AIA Spurs Football Clinic SG60 Edition brings professional coaching to aspiring young footballers. Open to youth aged 8–18, this free community clinic uses sport to promote active, healthy lifestyles.",
+    description: "In partnership with Tottenham Hotspur FC — AIA's Global Principal Partner — the AIA Spurs Football Clinic SG60 Edition brings professional coaching to aspiring young footballers.",
     category: "Community Sport", color: "#0ea5e9",
   },
 ];
 
-// ─── Marathon Routes ───────────────────────────────────────────────────────────
 const MARATHON_ROUTES = {
   7: {
     color: "#22c55e", name: "Charity Run Route",
@@ -220,14 +217,12 @@ const MARATHON_ROUTES = {
 };
 const ROUTE_EVENT_IDS = new Set(Object.keys(MARATHON_ROUTES).map(Number));
 
-// ─── Dates ────────────────────────────────────────────────────────────────────
 const UNIQUE_DATES = [...new Set(ALL_EVENTS.map((e) => e.date))].sort();
 function formatDateLabel(dateStr) {
   const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString("en-SG", { weekday: "short", day: "numeric", month: "short" });
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 function loadScript(src) {
   return new Promise((res) => {
     if (document.querySelector(`script[src="${src}"]`)) return res();
@@ -258,10 +253,8 @@ if (typeof document !== "undefined" && !document.getElementById("aia-route-style
       opacity:0; animation:footAppear 2.4s ease-out forwards;
       pointer-events:none;
     }
-    /* Hide scrollbar on date strip */
     .aia-datebar::-webkit-scrollbar { display:none; }
     .aia-datebar { -ms-overflow-style:none; scrollbar-width:none; }
-    /* Bottom sheet drag handle */
     .aia-sheet-handle {
       width:36px; height:4px; border-radius:2px;
       background:rgba(0,0,0,0.15); margin:0 auto 10px;
@@ -269,8 +262,219 @@ if (typeof document !== "undefined" && !document.getElementById("aia-route-style
     @media (max-width:639px) {
       .aia-route-legend { display:none !important; }
     }
+
+    /* ── Gallery page ── */
+    @keyframes galleryFadeIn {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .gallery-page {
+      position:fixed; inset:0; z-index:2000;
+      background:#0a0a0f;
+      overflow-y:auto;
+      animation:galleryFadeIn 0.38s cubic-bezier(.4,0,.2,1);
+    }
+    .gallery-page::-webkit-scrollbar { width:4px; }
+    .gallery-page::-webkit-scrollbar-track { background:transparent; }
+    .gallery-page::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.15); border-radius:4px; }
+
+    /* Fade top of scroll container */
+    .gallery-scroll-area {
+      position:relative;
+    }
+    .gallery-fade-top {
+      position:sticky;
+      top:0;
+      left:0; right:0;
+      height:140px;
+      background:linear-gradient(to bottom, #0a0a0f 30%, transparent 100%);
+      pointer-events:none;
+      z-index:10;
+      margin-bottom:-140px;
+    }
+
+    /* Photo card */
+    .gallery-item {
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity 0.55s ease, transform 0.55s ease;
+      will-change:opacity,transform;
+    }
+    .gallery-item.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .photo-btn-fab {
+      position:fixed;
+      bottom:28px; right:16px;
+      z-index:1800;
+      width:52px; height:52px; border-radius:50%;
+      border:none; cursor:pointer;
+      background:linear-gradient(135deg,#f97316,#ef4444);
+      box-shadow:0 4px 20px rgba(249,115,22,0.5);
+      display:flex; align-items:center; justify-content:center;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .photo-btn-fab:hover {
+      transform:scale(1.08);
+      box-shadow:0 6px 28px rgba(249,115,22,0.65);
+    }
+    .photo-btn-fab:active { transform:scale(0.95); }
   `;
   document.head.appendChild(s);
+}
+
+// ─── All event photos flattened ───────────────────────────────────────────────
+const ALL_PHOTOS = ALL_EVENTS.flatMap((ev) =>
+  (ev.media || [])
+    .filter((m) => m.type === "image")
+    .map((m, idx) => ({
+      src: m.src,
+      eventTitle: ev.title,
+      category: ev.category,
+      color: ev.color,
+      date: ev.date,
+      id: `${ev.id}-${idx}`,
+    }))
+);
+
+// ─── Gallery Page ─────────────────────────────────────────────────────────────
+function GalleryPage({ onClose, isMobile }) {
+  const scrollRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  // Intersection observer for bottom-fade-in
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { rootMargin: "0px 0px -40px 0px", threshold: 0.08 }
+    );
+    itemRefs.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
+
+  // Close on Escape
+  useEffect(() => {
+    const fn = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", fn);
+    return () => window.removeEventListener("keydown", fn);
+  }, [onClose]);
+
+  const colCount = isMobile ? 1 : 2;
+  const cols = Array.from({ length: colCount }, (_, ci) =>
+    ALL_PHOTOS.filter((_, i) => i % colCount === ci)
+  );
+
+  return (
+    <div className="gallery-page" ref={scrollRef}>
+      {/* Sticky top fade overlay */}
+      <div className="gallery-fade-top" />
+
+      {/* Fixed header */}
+      <div style={{
+        position: "sticky", top: 0, zIndex: 20,
+        padding: isMobile ? "18px 16px 12px" : "22px 32px 14px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        pointerEvents: "none",
+      }}>
+        <div style={{ pointerEvents: "auto" }}>
+          <div style={{ fontSize: isMobile ? 20 : 26, fontWeight: 800, color: "#fff", letterSpacing: "-0.5px", fontFamily: "'Sora', sans-serif" }}>
+            SG<span style={{ color: "#f97316" }}>Events</span>
+            <span style={{ fontWeight: 400, color: "rgba(255,255,255,0.45)", fontSize: isMobile ? 14 : 18, marginLeft: 10 }}>Gallery</span>
+          </div>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 2, fontWeight: 500 }}>
+            {ALL_PHOTOS.length} photos across {ALL_EVENTS.length} events
+          </div>
+        </div>
+        <button onClick={onClose} style={{
+          pointerEvents: "auto",
+          width: 38, height: 38, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.15)",
+          background: "rgba(255,255,255,0.08)", cursor: "pointer",
+          display: "flex", alignItems: "center", justifyContent: "center", color: "#fff",
+          backdropFilter: "blur(10px)",
+        }}>
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Masonry columns */}
+      <div style={{
+        padding: isMobile ? "0 12px 80px" : "0 32px 80px",
+        display: "flex", gap: 14, alignItems: "flex-start",
+      }}>
+        {cols.map((colPhotos, ci) => (
+          <div key={ci} style={{ flex: 1, display: "flex", flexDirection: "column", gap: 14 }}>
+            {colPhotos.map((photo, pi) => {
+              const globalIdx = ci + pi * colCount;
+              const d = new Date(photo.date + "T00:00:00");
+              const dateLabel = d.toLocaleDateString("en-SG", { day: "numeric", month: "short", year: "numeric" });
+              // Alternate aspect ratios for visual rhythm
+              const tall = globalIdx % 3 === 1;
+              const aspectPad = tall ? "140%" : "72%";
+
+              return (
+                <div
+                  key={photo.id}
+                  className="gallery-item"
+                  ref={(el) => { itemRefs.current[globalIdx] = el; }}
+                  style={{ borderRadius: 16, overflow: "hidden", position: "relative" }}
+                >
+                  <div style={{ position: "relative", paddingBottom: aspectPad, background: "#1a1a22" }}>
+                    <img
+                      src={photo.src}
+                      alt={photo.eventTitle}
+                      loading="lazy"
+                      style={{
+                        position: "absolute", inset: 0,
+                        width: "100%", height: "100%", objectFit: "cover",
+                        display: "block",
+                      }}
+                    />
+                    {/* Bottom caption gradient */}
+                    <div style={{
+                      position: "absolute", bottom: 0, left: 0, right: 0,
+                      height: "55%",
+                      background: "linear-gradient(to top, rgba(6,6,14,0.88) 0%, transparent 100%)",
+                      pointerEvents: "none",
+                    }} />
+                    {/* Caption */}
+                    <div style={{
+                      position: "absolute", bottom: 0, left: 0, right: 0,
+                      padding: "12px 14px",
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
+                        <span style={{
+                          fontSize: 10, fontWeight: 700, letterSpacing: "0.5px",
+                          textTransform: "uppercase", padding: "2px 8px", borderRadius: 10,
+                          background: photo.color + "33", color: photo.color,
+                          border: `1px solid ${photo.color}55`,
+                        }}>{photo.category}</span>
+                        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>{dateLabel}</span>
+                      </div>
+                      <div style={{
+                        fontSize: isMobile ? 12 : 13, fontWeight: 700, color: "#fff",
+                        lineHeight: 1.3, letterSpacing: "-0.2px",
+                        textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+                      }}>{photo.eventTitle}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 // ─── Event Modal ──────────────────────────────────────────────────────────────
@@ -286,7 +490,7 @@ function EventModal({ event, onClose, isMobile }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [total, onClose, setMediaIdx]);
+  }, [total, onClose]);
 
   const cur = event.media?.[mediaIdx];
   const mediaH = isMobile ? 220 : 300;
@@ -310,16 +514,13 @@ function EventModal({ event, onClose, isMobile }) {
           borderRadius: isMobile ? "20px 20px 0 0" : 24,
           width: "100%",
           maxWidth: isMobile ? "100%" : 560,
-          maxHeight: isMobile ? "92vh" : "92vh",
+          maxHeight: "92vh",
           overflowY: "auto",
           boxShadow: "0 40px 120px rgba(0,0,0,0.45)",
           position: "relative",
         }}
       >
-        {/* Drag handle on mobile */}
         {isMobile && <div style={{ padding: "12px 0 0" }}><div className="aia-sheet-handle" /></div>}
-
-        {/* Close */}
         <button onClick={onClose} style={{
           position: "absolute", top: isMobile ? 10 : 14, right: 14, zIndex: 10,
           width: 36, height: 36, borderRadius: "50%", border: "none",
@@ -330,8 +531,6 @@ function EventModal({ event, onClose, isMobile }) {
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-
-        {/* Header */}
         <div style={{ padding: isMobile ? "8px 16px 12px" : "24px 24px 14px" }}>
           <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap" }}>
             <span style={{
@@ -345,11 +544,8 @@ function EventModal({ event, onClose, isMobile }) {
           </div>
           <h2 style={{
             fontSize: isMobile ? 18 : 22, fontWeight: 800, color: "#111",
-            margin: "0 0 10px", lineHeight: 1.25, letterSpacing: "-0.4px",
-            paddingRight: 32,
-          }}>
-            {event.title}
-          </h2>
+            margin: "0 0 10px", lineHeight: 1.25, letterSpacing: "-0.4px", paddingRight: 32,
+          }}>{event.title}</h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? 8 : 14 }}>
             {[{ icon: "🕐", text: event.time }, { icon: "📍", text: event.location }].map(({ icon, text }) => (
               <span key={text} style={{ display: "flex", alignItems: "flex-start", fontSize: isMobile ? 12 : 13, color: "#555", fontWeight: 500, gap: 4 }}>
@@ -358,8 +554,6 @@ function EventModal({ event, onClose, isMobile }) {
             ))}
           </div>
         </div>
-
-        {/* Media */}
         <div style={{ position: "relative", width: "100%", height: mediaH, background: "#0a0a0f", overflow: "hidden" }}>
           {cur.type === "image"
             ? <img key={cur.src} src={cur.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
@@ -397,8 +591,6 @@ function EventModal({ event, onClose, isMobile }) {
             </>
           )}
         </div>
-
-        {/* Description */}
         <div style={{ padding: isMobile ? "16px 16px 24px" : "20px 24px 28px" }}>
           <p style={{ fontSize: isMobile ? 14 : 15, color: "#444", lineHeight: 1.75, margin: "0 0 16px" }}>{event.description}</p>
           <button style={{
@@ -417,7 +609,6 @@ function EventModal({ event, onClose, isMobile }) {
 function DateBar({ selectedDate, onChange, isMobile }) {
   const isAll = selectedDate === "all";
   const top = isMobile ? 68 : 76;
-
   return (
     <div style={{
       position: "absolute", top, left: "50%", transform: "translateX(-50%)",
@@ -429,7 +620,6 @@ function DateBar({ selectedDate, onChange, isMobile }) {
       maxWidth: isMobile ? "calc(100vw - 16px)" : "calc(100vw - 32px)",
     }}>
       <div className="aia-datebar" style={{ display: "flex", gap: 3, overflowX: "auto" }}>
-        {/* ALL preset */}
         <button onClick={() => onChange("all")} style={{
           flexShrink: 0, padding: isMobile ? "5px 10px" : "6px 14px",
           borderRadius: 30, border: "none", cursor: "pointer",
@@ -446,9 +636,7 @@ function DateBar({ selectedDate, onChange, isMobile }) {
           </svg>
           {isMobile ? "All" : "All Events"}
         </button>
-
         <div style={{ width: 1, background: "#e5e7eb", margin: "4px 2px" }} />
-
         {UNIQUE_DATES.map((date) => {
           const eventsOnDay = ALL_EVENTS.filter((e) => e.date === date);
           const isActive = selectedDate === date;
@@ -456,7 +644,6 @@ function DateBar({ selectedDate, onChange, isMobile }) {
           const day = d.toLocaleDateString("en-SG", { day: "numeric" });
           const mon = d.toLocaleDateString("en-SG", { month: "short" });
           const wday = d.toLocaleDateString("en-SG", { weekday: "short" });
-
           return (
             <button key={date} onClick={() => onChange(date)} style={{
               flexShrink: 0, padding: isMobile ? "3px 8px" : "4px 12px",
@@ -488,7 +675,6 @@ function AllEventsSidebar({ events, onSelect }) {
     if (evs.length) acc[d] = evs;
     return acc;
   }, {});
-
   return (
     <div style={{
       position: "absolute", top: 140, left: 16, bottom: 24, zIndex: 900,
@@ -533,20 +719,13 @@ function AllEventsSidebar({ events, onSelect }) {
                 onMouseEnter={(e) => e.currentTarget.style.background = "#fafafa"}
                 onMouseLeave={(e) => e.currentTarget.style.background = "none"}
               >
-                <div style={{
-                  width: 40, height: 40, borderRadius: 10, overflow: "hidden", flexShrink: 0,
-                  border: `2.5px solid ${ev.color}`,
-                }}>
+                <div style={{ width: 40, height: 40, borderRadius: 10, overflow: "hidden", flexShrink: 0, border: `2.5px solid ${ev.color}` }}>
                   <img src={ev.thumbnail} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: "#111", lineHeight: 1.3, marginBottom: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                    {ev.title}
-                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#111", lineHeight: 1.3, marginBottom: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ev.title}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <span style={{ fontSize: 10, fontWeight: 600, color: ev.color, background: ev.color + "15", padding: "1px 7px", borderRadius: 10 }}>
-                      {ev.category}
-                    </span>
+                    <span style={{ fontSize: 10, fontWeight: 600, color: ev.color, background: ev.color + "15", padding: "1px 7px", borderRadius: 10 }}>{ev.category}</span>
                     <span style={{ fontSize: 10, color: "#999" }}>{ev.time.split("·")[1]?.trim() || ""}</span>
                   </div>
                 </div>
@@ -566,25 +745,20 @@ function MobileBottomSheet({ events, onSelect, isOpen, onToggle }) {
     if (evs.length) acc[d] = evs;
     return acc;
   }, {});
-
   return (
     <>
-      {/* Toggle tab */}
-      <button
-        onClick={onToggle}
-        style={{
-          position: "absolute", bottom: isOpen ? "52vh" : 24, left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 901, border: "none", cursor: "pointer",
-          background: "linear-gradient(135deg,#f97316,#ef4444)",
-          color: "#fff", borderRadius: 30,
-          padding: "8px 18px",
-          fontSize: 12, fontWeight: 700, letterSpacing: "0.3px",
-          boxShadow: "0 4px 20px rgba(249,115,22,0.45)",
-          display: "flex", alignItems: "center", gap: 6,
-          transition: "bottom 0.35s cubic-bezier(.4,0,.2,1)",
-        }}
-      >
+      <button onClick={onToggle} style={{
+        position: "absolute", bottom: isOpen ? "52vh" : 24, left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 901, border: "none", cursor: "pointer",
+        background: "linear-gradient(135deg,#f97316,#ef4444)",
+        color: "#fff", borderRadius: 30,
+        padding: "8px 18px",
+        fontSize: 12, fontWeight: 700, letterSpacing: "0.3px",
+        boxShadow: "0 4px 20px rgba(249,115,22,0.45)",
+        display: "flex", alignItems: "center", gap: 6,
+        transition: "bottom 0.35s cubic-bezier(.4,0,.2,1)",
+      }}>
         <svg viewBox="0 0 16 16" width="12" height="12" fill="white">
           <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12z"/>
           <circle cx="8" cy="8" r="3"/>
@@ -595,11 +769,8 @@ function MobileBottomSheet({ events, onSelect, isOpen, onToggle }) {
           <polyline points="18 15 12 9 6 15" />
         </svg>
       </button>
-
-      {/* Sheet panel */}
       <div style={{
-        position: "absolute", left: 0, right: 0, bottom: 0,
-        height: "52vh",
+        position: "absolute", left: 0, right: 0, bottom: 0, height: "52vh",
         background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)",
         borderRadius: "20px 20px 0 0",
         boxShadow: "0 -8px 32px rgba(0,0,0,0.14)",
@@ -621,29 +792,20 @@ function MobileBottomSheet({ events, onSelect, isOpen, onToggle }) {
                 padding: "8px 16px 4px", fontSize: 10, fontWeight: 700,
                 color: "#aaa", letterSpacing: "0.8px", textTransform: "uppercase",
                 position: "sticky", top: 0, background: "rgba(255,255,255,0.97)",
-              }}>
-                {formatDateLabel(date)}
-              </div>
+              }}>{formatDateLabel(date)}</div>
               {evs.map((ev) => (
                 <button key={ev.id} onClick={() => { onSelect(ev); onToggle(); }} style={{
                   width: "100%", textAlign: "left", background: "none", border: "none",
                   cursor: "pointer", padding: "10px 16px", display: "flex", gap: 12, alignItems: "center",
                   borderBottom: "1px solid #f5f5f5",
                 }}>
-                  <div style={{
-                    width: 44, height: 44, borderRadius: 12, overflow: "hidden", flexShrink: 0,
-                    border: `2.5px solid ${ev.color}`,
-                  }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, overflow: "hidden", flexShrink: 0, border: `2.5px solid ${ev.color}` }}>
                     <img src={ev.thumbnail} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: "#111", lineHeight: 1.3, marginBottom: 3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                      {ev.title}
-                    </div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: "#111", lineHeight: 1.3, marginBottom: 3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ev.title}</div>
                     <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-                      <span style={{ fontSize: 10, fontWeight: 600, color: ev.color, background: ev.color + "15", padding: "2px 8px", borderRadius: 10 }}>
-                        {ev.category}
-                      </span>
+                      <span style={{ fontSize: 10, fontWeight: 600, color: ev.color, background: ev.color + "15", padding: "2px 8px", borderRadius: 10 }}>{ev.category}</span>
                       <span style={{ fontSize: 10, color: "#999" }}>{ev.time.split("·")[1]?.trim() || ""}</span>
                     </div>
                   </div>
@@ -671,6 +833,7 @@ export default function App() {
   const [selectedDate, setSelectedDate] = useState("all");
   const [activeEvent, setActiveEvent] = useState(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
   const isMobile = useIsMobile();
 
   const visibleEvents = selectedDate === "all"
@@ -683,50 +846,27 @@ export default function App() {
     loadStyle("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap");
   }, []);
 
-  // 1. INITIALIZATION: Only runs once when the script is ready
   useEffect(() => {
-    // Guard clause: Ensure Leaflet exists and we haven't built the map yet
     if (!ready || !mapRef.current || leafletRef.current || !window.L) return;
-
     const L = window.L;
-
-
     const map = L.map(mapRef.current, {
       center: [1.3521, 103.8198],
-      zoom: isMobile ? 11 : 12, // Set initial zoom based on current state
-      minZoom: 11,
-      maxZoom: 16,
-      zoomControl: false,
+      zoom: isMobile ? 11 : 12,
+      minZoom: 11, maxZoom: 16, zoomControl: false,
     });
-
-    // Set constraints
     map.setMaxBounds(L.latLngBounds(L.latLng(1.1, 103.55), L.latLng(1.5, 104.1)));
-
-    // Add Layers
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: "© OpenStreetMap © CARTO",
-      subdomains: "abcd",
-      maxZoom: 19,
+      attribution: "© OpenStreetMap © CARTO", subdomains: "abcd", maxZoom: 19,
     }).addTo(map);
-
     L.control.zoom({ position: "bottomright" }).addTo(map);
-
-    // Initialize Layer Groups for pins and routes
     layerGroupRef.current = L.layerGroup().addTo(map);
     routeLayerRef.current = L.layerGroup().addTo(map);
-
-    // Save map instance to ref to prevent re-initialization
     leafletRef.current = map;
-
-    // NOTE: We exclude isMobile from this array so the map isn't destroyed/rebuilt
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
-  // 2. RESPONSIVE UPDATE: Updates zoom smoothly without breaking the map
   useEffect(() => {
-    if (leafletRef.current) {
-      leafletRef.current.setZoom(isMobile ? 11 : 12);
-    }
+    if (leafletRef.current) leafletRef.current.setZoom(isMobile ? 11 : 12);
   }, [isMobile]);
 
   const setActiveEventCb = useCallback((ev) => setActiveEvent(ev), []);
@@ -739,7 +879,6 @@ export default function App() {
     footTimersRef.current.forEach(clearTimeout);
     footTimersRef.current = [];
 
-    // Routes + footprints
     const routeEvents = visibleEvents.filter((ev) => ROUTE_EVENT_IDS.has(ev.id));
     routeEvents.forEach((ev) => {
       const route = MARATHON_ROUTES[ev.id];
@@ -755,7 +894,6 @@ export default function App() {
         const len = Math.sqrt(dlat*dlat + dlng*dlng);
         segLengths.push(len); totalLen += len;
       }
-
       const interpolated = [];
       for (let s = 0; s < totalSteps; s++) {
         const t = (s / (totalSteps - 1)) * totalLen;
@@ -812,7 +950,6 @@ export default function App() {
       });
     });
 
-    // Event markers
     const markerSize = isMobile ? 42 : 54;
     const markerHoverSize = isMobile ? 66 : 84;
     const markerOffset = isMobile ? -12 : -15;
@@ -922,7 +1059,7 @@ export default function App() {
         />
       )}
 
-      {/* ── Route legend (desktop only, top-right below count) ── */}
+      {/* ── Route legend ── */}
       {routeEventsVisible.length > 0 && !isMobile && (
         <div className="aia-route-legend" style={{
           position: "absolute", top: 60, right: 12, zIndex: 900,
@@ -966,7 +1103,26 @@ export default function App() {
       {/* ── Map ── */}
       <div ref={mapRef} style={{ width: "100%", height: "100%" }} />
 
-      {/* ── Modal ── */}
+      {/* ── Gallery FAB button ── */}
+      <button
+        className="photo-btn-fab"
+        onClick={() => setShowGallery(true)}
+        title="View photo gallery"
+        style={{ bottom: isMobile ? 90 : 28 }}
+      >
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <polyline points="21 15 16 10 5 21" />
+        </svg>
+      </button>
+
+      {/* ── Gallery Page overlay ── */}
+      {showGallery && (
+        <GalleryPage onClose={() => setShowGallery(false)} isMobile={isMobile} />
+      )}
+
+      {/* ── Event Modal ── */}
       {activeEvent && (
         <EventModal event={activeEvent} onClose={() => setActiveEvent(null)} isMobile={isMobile} />
       )}
